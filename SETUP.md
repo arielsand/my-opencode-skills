@@ -57,16 +57,37 @@ Add to `~/.config/opencode/opencode.json` in the plugins array:
 # Clone this repository
 git clone https://github.com/arielsand/my-opencode-skills.git ~/my-opencode-skills
 
-# Create symlinks
+# Create symlinks for custom skills
 ln -s ~/my-opencode-skills/architecture-map ~/.config/opencode/skills/
 ln -s ~/my-opencode-skills/coding-standards ~/.config/opencode/skills/
-ln -s ~/my-opencode-skills/dev-time-tracker ~/.config/opencode/skills/
-ln -s ~/my-opencode-skills/frontend-design ~/.config/opencode/skills/
-ln -s ~/my-opencode-skills/docx ~/.config/opencode/skills/
-ln -s ~/my-opencode-skills/pdf ~/.config/opencode/skills/
-ln -s ~/my-opencode-skills/xlsx ~/.config/opencode/skills/
-ln -s ~/my-opencode-skills/skill-creator ~/.config/opencode/skills/
+ln -s ~/my-opencode-skills/time-tracker ~/.config/opencode/skills/
 ```
+
+**Note:** The following skills come pre-installed with OpenCode superpowers (symlinked automatically):
+- `algorithmic-art`
+- `brainstorming`
+- `browser-automation`
+- `dispatching-parallel-agents`
+- `documentation`
+- `docx`
+- `executing-plans`
+- `figma-mcp`
+- `finishing-a-development-branch`
+- `frontend-design`
+- `pdf`
+- `postgres`
+- `receiving-code-review`
+- `requesting-code-review`
+- `skill-creator`
+- `subagent-driven-development`
+- `systematic-debugging`
+- `test-driven-development`
+- `using-git-worktrees`
+- `using-superpowers`
+- `verification-before-completion`
+- `writing-plans`
+- `writing-skills`
+- `xlsx`
 
 ## Step 3: Agent Model Configuration
 
@@ -74,90 +95,94 @@ Create `~/.config/opencode/oh-my-opencode.json`:
 
 ```json
 {
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/dev/assets/oh-my-opencode.schema.json",
+  "google_auth": false,
   "agents": {
-    "Sisyphus": {
-      "provider": "ollama-cloud",
-      "model": "glm-5",
+    "sisyphus": {
+      "model": "ollama/glm-5:cloud",
       "max_tokens_limit": 16000
     },
-    "Sisyphus-Junior": {
-      "provider": "ollama-cloud",
-      "model": "qwen3.5:397b",
+    "sisyphus-junior": {
+      "model": "ollama/qwen3.5:cloud",
       "max_tokens_limit": 8000
     },
-    "Prometheus": {
-      "provider": "ollama-cloud",
-      "model": "glm-5",
+    "prometheus": {
+      "model": "ollama/glm-5:cloud",
       "max_tokens_limit": 8000
     },
-    "Oracle": {
-      "provider": "ollama-cloud",
-      "model": "glm-5",
+    "oracle": {
+      "model": "ollama/glm-5:cloud",
       "max_tokens_limit": 12000
     },
-    "Metis": {
-      "provider": "ollama-cloud",
-      "model": "glm-5",
+    "metis": {
+      "model": "ollama/glm-5:cloud",
       "max_tokens_limit": 8000
     },
-    "Momus": {
-      "provider": "ollama-cloud",
-      "model": "glm-5",
+    "momus": {
+      "model": "ollama/glm-5:cloud",
       "max_tokens_limit": 8000
     },
-    "Hephaestus": {
-      "provider": "ollama-cloud",
-      "model": "kimi-k2.5",
+    "hephaestus": {
+      "model": "ollama/kimi-k2.5:cloud",
       "max_tokens_limit": 10000
     },
-    "Atlas": {
-      "provider": "ollama-cloud",
-      "model": "minimax-m2.7",
+    "atlas": {
+      "model": "ollama/minimax-m2.7:cloud",
       "max_tokens_limit": 6000
     },
-    "Multimodal-Looker": {
-      "provider": "ollama-cloud",
-      "model": "kimi-k2.5",
+    "multimodal-looker": {
+      "model": "ollama/qwen3-vl:235b",
       "max_tokens_limit": 12000
     },
-    "Explore": {
-      "provider": "ollama-cloud",
-      "model": "qwen3.5:397b",
+    "explore": {
+      "model": "ollama/qwen3.5:cloud",
+      "max_tokens_limit": 16000
+    },
+    "librarian": {
+      "model": "ollama/qwen3.5:cloud",
       "max_tokens_limit": 16000
     }
   },
   "categories": {
     "visual-engineering": {
-      "provider": "ollama-cloud",
-      "model": "kimi-k2.5"
+      "model": "ollama/qwen3-vl:235b"
     },
     "ultrabrain": {
-      "provider": "ollama-cloud",
-      "model": "glm-5"
+      "model": "ollama/glm-5:cloud"
+    },
+    "deep": {
+      "model": "ollama/kimi-k2.5:cloud"
     },
     "artistry": {
-      "provider": "ollama-cloud",
-      "model": "kimi-k2.5"
+      "model": "ollama/minimax-m2.7:cloud"
     },
     "quick": {
-      "provider": "ollama-cloud",
-      "model": "minimax-m2.7"
+      "model": "ollama/minimax-m2.5:cloud"
     },
     "unspecified-low": {
-      "provider": "ollama-cloud",
-      "model": "qwen3.5:397b"
+      "model": "ollama/qwen3.5:cloud"
     },
     "unspecified-high": {
-      "provider": "ollama-cloud",
-      "model": "glm-5"
+      "model": "ollama/glm-5:cloud"
     },
     "writing": {
-      "provider": "ollama-cloud",
-      "model": "qwen3.5:397b"
+      "model": "ollama/minimax-m2.7:cloud"
     }
   }
 }
 ```
+
+### Agent Model IDs
+
+Use these IDs in the config:
+| Agent | Model ID |
+|-------|----------|
+| GLM-5 | `ollama/glm-5:cloud` |
+| Kimi K2.5 | `ollama/kimi-k2.5:cloud` |
+| Qwen 3.5 | `ollama/qwen3.5:cloud` |
+| MiniMax M2.7 | `ollama/minimax-m2.7:cloud` |
+| MiniMax M2.5 | `ollama/minimax-m2.5:cloud` |
+| Qwen VL | `ollama/qwen3-vl:235b` |
 
 ## Step 4: DCP Configuration
 
@@ -165,6 +190,7 @@ Create `~/.config/opencode/dcp.jsonc`:
 
 ```jsonc
 {
+  "$schema": "https://raw.githubusercontent.com/Opencode-DCP/opencode-dynamic-context-pruning/master/dcp.schema.json",
   "enabled": true,
   "maxContextPercentage": 60,
   "minContextPercentage": 25,
@@ -179,8 +205,10 @@ Create `~/.config/opencode/dcp.jsonc`:
 |-------|---------------|-----------|---------------------|----------|
 | **GLM-5** | 44B | 77.8% | $1.00 | Deep reasoning, complex coding, architecture decisions |
 | **MiniMax M2.7** | 10B | ~78% | $0.30 | Cost efficiency, quick tasks, high intelligence |
+| **MiniMax M2.5** | 10B | ~77% | $0.25 | Fast, cheap, good for quick tasks |
 | **Kimi K2.5** | 32B | 76.8% | $0.60 | Multimodal tasks, agent coordination, UI work |
 | **Qwen 3.5** | 17B | 76.4% | $0.18 | Efficiency, large context windows (1M tokens) |
+| **Qwen VL** | 235B | - | - | Vision/multimodal tasks |
 
 ## Agent Assignments Rationale
 
@@ -197,22 +225,37 @@ Create `~/.config/opencode/dcp.jsonc`:
 - **Hephaestus (Kimi K2.5)** - Autonomous deep work with goal-oriented execution
 - **Atlas (MiniMax M2.7)** - Fast parallel dispatch for quick tasks
 - **Explore (Qwen 3.5)** - Efficient codebase exploration with 1M context
-- **Multimodal-Looker (Kimi K2.5)** - Visual and multimodal analysis
+- **Multimodal-Looker (Qwen VL)** - Visual and multimodal analysis
 
 ### Helper Layer
 - **Sisyphus-Junior (Qwen 3.5)** - Lightweight coordination assistance
+- **Librarian (Qwen 3.5)** - Information retrieval and research
 
 ## Category Assignments
 
 | Category | Model | Rationale |
 |----------|-------|-----------|
-| visual-engineering | Kimi K2.5 | Multimodal excellence for UI/UX |
+| visual-engineering | Qwen VL | Multimodal excellence for UI/UX |
 | ultrabrain | GLM-5 | Maximum reasoning for hard problems |
-| artistry | Kimi K2.5 | Creative with multimodal capabilities |
-| quick | MiniMax M2.7 | Cheapest per token, very intelligent |
+| deep | Kimi K2.5 | Goal-oriented autonomous problem-solving |
+| artistry | MiniMax M2.7 | Creative with multimodal capabilities |
+| quick | MiniMax M2.5 | Cheapest per token, very fast |
 | unspecified-low | Qwen 3.5 | Efficient for simple tasks |
 | unspecified-high | GLM-5 | Complex tasks need deep reasoning |
-| writing | Qwen 3.5 | Efficient for documentation |
+| writing | MiniMax M2.7 | Efficient for documentation |
+
+### Category Descriptions
+
+| Category | Purpose |
+|----------|---------|
+| **visual-engineering** | Frontend, UI/UX, design, styling, animation |
+| **ultrabrain** | Genuinely hard, logic-heavy tasks - deep reasoning |
+| **deep** | Goal-oriented autonomous problem-solving, thorough research before action |
+| **artistry** | Complex problem-solving with unconventional, creative approaches |
+| **quick** | Trivial tasks - single file changes, typo fixes, simple modifications |
+| **unspecified-low** | Tasks that don't fit other categories, low effort required |
+| **unspecified-high** | Tasks that don't fit other categories, high effort required |
+| **writing** | Documentation, prose, technical writing |
 
 ## Verification
 
@@ -243,11 +286,9 @@ ls -la ~/.config/opencode/skills/
 - Check file permissions
 
 ### Agent model not found
-- Model IDs in Ollama Cloud:
-  - `ollama-cloud/glm-5`
-  - `ollama-cloud/kimi-k2.5`
-  - `ollama-cloud/qwen3.5:397b` (note: qwen3.5, not qwen-3.5)
-  - `ollama-cloud/minimax-m2.7`
+- Verify model IDs match the format `ollama/{model}:cloud`
+- Check Ollama Cloud subscription is active
+- Try the model in OpenCode settings first
 
 ### Browser extension not working
 - Verify extension is loaded in chrome://extensions/

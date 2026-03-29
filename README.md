@@ -8,7 +8,7 @@ Custom skills for OpenCode AI assistant that I've developed and use across my pr
 |-------|-------------|
 | `architecture-map` | Generates `PROJECT_ARCHITECTURE.md` - a comprehensive architectural map for AI context |
 | `coding-standards` | Generates `CODING_STANDARDS.md` - coding conventions and best practices for teams |
-| `dev-time-tracker` | Tracks development session time and updates Excel timesheets with session details |
+| `time-tracker` | Tracks development session time and updates Excel timesheets AND markdown work logs |
 
 ## Installation
 
@@ -21,7 +21,7 @@ git clone https://github.com/arielsand/my-opencode-skills.git ~/my-opencode-skil
 # Create symlinks to OpenCode skills directory
 ln -s ~/my-opencode-skills/architecture-map ~/.config/opencode/skills/
 ln -s ~/my-opencode-skills/coding-standards ~/.config/opencode/skills/
-ln -s ~/my-opencode-skills/dev-time-tracker ~/.config/opencode/skills/
+ln -s ~/my-opencode-skills/time-tracker ~/.config/opencode/skills/
 
 # Restart OpenCode to load the skills
 ```
@@ -69,9 +69,9 @@ Use the coding-standards skill on this project
 - Generates comprehensive standards document (15+ sections)
 - Updates AGENTS.md to reference coding standards
 
-### dev-time-tracker
+### time-tracker
 
-Track development sessions and update Excel timesheets:
+Track development sessions and update Excel timesheets AND markdown work logs:
 
 ```
 Log my development time for this session
@@ -86,7 +86,7 @@ I finished working, record my time
 - Calculates session duration from conversation context
 - Extracts deliverables and focus from the work done
 - Appends entry to `{project}/docs/development_time.xlsx`
-- Creates new timesheet if one doesn't exist
+- Creates or updates `{project}/docs/WORKLOG.md` with weekly table format
 - Shows summary of logged time
 
 ## Skills Structure
