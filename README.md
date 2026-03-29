@@ -112,6 +112,14 @@ git pull
 
 Feel free to fork and adapt these skills to your needs. If you make improvements, PRs are welcome!
 
+## Full Setup Guide
+
+For complete OpenCode environment replication, see [SETUP.md](SETUP.md) which includes:
+- Plugin installation (OhMyOpenAgent, opencode-browser, DCP)
+- Agent model configuration (GLM-5, MiniMax M2.7, Kimi K2.5, Qwen 3.5)
+- Skills repository setup
+- Troubleshooting guide
+
 ## License
 
 MIT License - feel free to use and modify as you wish.
