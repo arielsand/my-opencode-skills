@@ -8,6 +8,7 @@ Custom skills for OpenCode AI assistant that I've developed and use across my pr
 |-------|-------------|
 | `architecture-map` | Generates `PROJECT_ARCHITECTURE.md` - a comprehensive architectural map for AI context |
 | `coding-standards` | Generates `CODING_STANDARDS.md` - coding conventions and best practices for teams |
+| `security-audit-expert` | Exhaustive security audits with OWASP/CWE references, dual output (Markdown + JSON), compliance mapping (GDPR/SOC2/PCI-DSS) |
 | `time-tracker` | Tracks development session time and updates Excel timesheets AND markdown work logs |
 
 ## Installation
