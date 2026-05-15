@@ -22,6 +22,7 @@ git clone https://github.com/arielsand/my-opencode-skills.git ~/my-opencode-skil
 # Create symlinks to OpenCode skills directory
 ln -s ~/my-opencode-skills/architecture-map ~/.config/opencode/skills/
 ln -s ~/my-opencode-skills/coding-standards ~/.config/opencode/skills/
+ln -s ~/my-opencode-skills/security-audit-expert ~/.config/opencode/skills/
 ln -s ~/my-opencode-skills/time-tracker ~/.config/opencode/skills/
 
 # Restart OpenCode to load the skills
@@ -89,6 +90,25 @@ I finished working, record my time
 - Appends entry to `{project}/docs/development_time.xlsx`
 - Creates or updates `{project}/docs/WORKLOG.md` with weekly table format
 - Shows summary of logged time
+
+### security-audit-expert
+
+Perform exhaustive security audits with OWASP/CWE references:
+
+```
+Run a security audit on this project
+```
+
+**What it does:**
+- Scans for vulnerabilities across all 11 phases (Scope, Dependencies, Auth, API, Data Protection, Injection, Frontend, Infrastructure, Compliance, SAST/DAST, Report)
+- Produces dual-output: `report.md` (human-readable) + `report.json` (machine-readable)
+- Maps findings to compliance frameworks (GDPR, SOC2, PCI-DSS) when requested
+- Assigns severity ratings with concrete remediation steps
+
+**Audit depths:**
+- `full` (default) — all 11 phases
+- `quick` — surface-level scan of critical areas
+- `formal` — full + compliance mapping + SAST/DAST
 
 ## Skills Structure
 

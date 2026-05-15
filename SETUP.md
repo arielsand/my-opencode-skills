@@ -60,6 +60,7 @@ git clone https://github.com/arielsand/my-opencode-skills.git ~/my-opencode-skil
 # Create symlinks for custom skills
 ln -s ~/my-opencode-skills/architecture-map ~/.config/opencode/skills/
 ln -s ~/my-opencode-skills/coding-standards ~/.config/opencode/skills/
+ln -s ~/my-opencode-skills/security-audit-expert ~/.config/opencode/skills/
 ln -s ~/my-opencode-skills/time-tracker ~/.config/opencode/skills/
 ```
 
